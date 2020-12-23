@@ -11,13 +11,13 @@ public class YkPlus {
     private int townId;
     private String townName;
 
-    private YkPlus(BigInteger id, String name, int cityId, String cityName, int townId, String townName) {
-        this.id = id;
-        this.name = name;
-        this.cityId = cityId;
-        this.cityName = cityName;
-        this.townId = townId;
-        this.townName = townName;
+    private YkPlus(YkPlusBuilder ykPlusBuilder) {
+        this.id = ykPlusBuilder.id;
+        this.name = ykPlusBuilder.name;
+        this.cityId = ykPlusBuilder.cityId;
+        this.cityName = ykPlusBuilder.cityName;
+        this.townId = ykPlusBuilder.townId;
+        this.townName = ykPlusBuilder.townName;
     }
 
     public BigInteger getId() {
@@ -109,7 +109,7 @@ public class YkPlus {
         }
 
         public YkPlus build(){
-            return new YkPlus(id,name,cityId,cityName,townId,townName);
+            return new YkPlus(this);
         }
     }
 
